@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shaye_db?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 128815
+    tomcat:
+                  max-active: 400
+                  test-on-borrow: false
+                  maxWait: 4000
+                  jmx-enabled: false
+                  test-while-idle: true
+                  test-on-return: false
+                  validation-interval: 30000
+                  validation-query: SELECT 1
+                  time-between-eviction-runs-millis: 30000
+                  initial-size: 5
+                  min-evictable-idle-time-millis: 30000
+                  max-idle: 100
+                  min-idle: 50
+                  log-abandoned: false
+                  remove-abandoned: true
+                  remove-abandoned-timeout: 180
+                  jdbc-interceptors: org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer
+server:
+  port: 1286
+
+# MyBatis
+mybatis:
+  type-aliases-package: com.shaye.**.model                                 # model 包路径
+  mapper-locations: classpath*:/com/shaye/**/dao/mapper/**/*Mapper.xml     # mapper.xml 路径
+  check-config-location: true                                              # 检查配置文件是否存在
+  config-location: classpath:mybatis-config.xml                            # mybatis配置文件的路径
+
+
